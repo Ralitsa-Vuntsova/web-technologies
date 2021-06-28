@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Box Model</title>
+        <link rel="icon" href="./img/b.png">
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="./javascript/script.js"></script>
+    </head>
+
+    <body>
+        <header id="header">
+            <nav class="navigation">
+                <ul>
+                    <li class="content-nav"><a onclick="openMenu()">Съдържание</a></li>
+                    <li><a href="#resources">Източници</a></li>
+                </ul>
+            </nav>
+
+            <aside class="menu" id="menu">
+                <a class="exit" onclick="closeMenu()">
+                    <img src="./img/exit.svg" alt="Exit">
+                </a>
+                <a href="#box-model">Box model</a>
+                <a href="#display">Display</a>
+                <a href="#width-and-height">Width and height</a>
+                <a href="#margin-and-padding">Margin and padding</a>
+                <a href="#border">Border</a>
+                <a href="#box-sizing">Box sizing</a>
+                <a href="#developer-tools">Developer tools</a>
+            </aside>
+
+            <section class="hero">
+                <p class="subhead">CSS layouts:</p>
+                <h1>Box model</h1>
+                <a href="#">
+                    <img src="./img/gift-box.png" alt="Gift box">
+                </a>
+            </section>
+        </header>
+
+        <main id="main">
+            <section class="info">
+                <section class="box-model" id="box-model">
+                    <header>
+                        <h2 >Box model</h2>
+                    </header>
+                    <article>
+                        <p>
+                            Според концепцията за <i>box model</i>, всеки <i>HTML</i> елемент е правоъгълна кутия и може да има <i>content, padding, border</i> и <i>margin</i>, които се управляват от <i>CSS</i>:
+                            <ul>
+                                <li><i>Content</i> - oбластта, в която се показва съдържанието (текст и изображения), което може да бъде оразмерено като се използват свойства като <i>width</i> и <i>height</i>.</li>
+                                <li><i>Padding</i> - областта, разположена около съдържанието, представена като празно пространство. Размерът може да се контролира с помощта на свойството <i>padding</i>.</li>
+                                <li><i>Border</i> - гранична кутия, която обгръща съдържанието и всякакви padding-и. Размерът може да се контролира с помощта на свойството <i>border</i>.</li>
+                                <li><i>Margin</i> - най-външният слой, който обгръща съдържанието, <i>padding</i>-a и границите, като представлява празно пространство между този елемент и други елементи. Размерът може да се контролира с помощта на свойството <i>margin</i>.</li>  
+                            </ul>
+                        </p>
+                        <p>
+                            Разбирането на този модел е от ключово значение за възможността да се създават <i>layout</i>-и със <i>CSS</i> и подравняването на елементи с други елементи.
+                            Долното изображение показва как изглежда <i>box model</i>-a с разграничените слоеве:
+                        </p> 
+                        <figure class="figure-one">
+                            <img src="./img/box-model.png" alt="Box model">
+                            <figcaption>
+                                <i>Фигура 1: Представяне на box model-a <a href="#resources">[1]</a></i>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </section>
+
+                <section class="display" id="display">
+                    <header>
+                        <h2>Display</h2>
+                    </header>
+                    <article>
+                        <p>
+                            Полезно е да знаем как се <i>display</i>-ват елементите, за да можем да работим с <i>box model</i>-а. По подразбиране <i>display</i> за повечето елементи е <i>block</i> или <i>inline</i>, но тази стойност може да бъде заменена. Има доста стойности за свойството <i>display</i>, но най-често срещаните са <i>block, inline, inline-block</i> и <i>none</i>. Можем да променим стойността на <i>display</i> на елемент, като изберем този елемент в <i>CSS</i> и декларираме нова стойност.
+                        </p>
+                        <p>
+                            <i>Block-level</i> елементите заемат всяка налична ширина, независимо от тяхното съдържание, и започват от нов ред. Свойствата <i>width</i> и <i>height</i> работят. <i>Padding, margin</i> и <i>border</i> ще изтласкат други елементи от кутията.
+                        </p>
+                        <pre>
+                            <code>
+                                &lt;h1&gt;Display: block&lt;/h1&gt;
+
+                                &lt;p&gt;This is the first paragraph.&lt;/p&gt;
+                                &lt;p>This is the second paragraph.&lt;/p&gt;
+
+                                &lt;ul&gt;
+                                    &lt;li&gt;One&lt;/li&gt;
+                                    &lt;li&gt;Two&lt;/li&gt;
+                                    &lt;li&gt;Three&lt;/li&gt;
+                                &lt;/ul&gt;
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 1: Представяне на display: block (HTML код) <a href="#resources">[5]</a></i></p>
+                        <pre>
+                            <code>
+                                p{
+                                    display: block;
+                                    border: 2px solid blue;
+                                }
+                                
+                                ul{
+                                    display: block;
+                                    border: 2px solid red;
+                                }
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 2: Представяне на display: block (CSS код) <a href="#resources">[5]</a></i></p>
+                        <figure class="example-one">
+                            <img src="./img/display-block.png" alt="Display: block">
+                            <figcaption>
+                                <i>Пример 1: Визуализиране на display: block чрез браузър <a href="#resources">[4]</a></i>
+                            </figcaption>
+                        </figure>
+                        <p>
+                            <i>Inline-level</i> елементите заемат само ширината, която съдържанието им изисква и се нареждат на един и същи ред, един след друг. Свойствата <i>width</i> и <i>height</i> не работят. Вертикалните <i>padding, margin</i> и <i>border</i> се прилагат, но няма да изтласкат другите елементи, докато хоризонталните ще го направят.
+                        </p>
+                        <pre>
+                            <code>
+                                &lt;h1&gt;Display: inline&lt;/h1&gt;
+
+                                &lt;p&gt;This is the first paragraph.&lt;/p&gt;
+                                &lt;p&gt;This is the second paragraph.&lt;/p&gt;
+                                &lt;p&gt;This is the third paragraph.&lt;/p&gt;
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 3: Представяне на display: inline (HTML код) <a href="#resources">[5]</a></i></p>
+                        <pre>
+                            <code>
+                                p{
+                                    display: inline;
+                                    border: 2px solid blue;
+                                }
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 4: Представяне на display: inline (CSS код) <a href="#resources">[5]</a></i></p>
+                        <figure class="example-two">
+                            <img src="./img/display-inline.png" alt="Display: inline">
+                            <figcaption>
+                                <i>Пример 2: Визуализиране на display: inline чрез браузър <a href="#resources">[4]</a></i>
+                            </figcaption>
+                        </figure>
+                        <p>
+                            <i>Block-level</i> елементите обикновено се използват за по-големи части от съдържанието, като заглавия и структурни елементи. <i>Inline-level</i> елементите обикновено се използват за по-малки части от съдържанието, като например няколко думи, които са <b>bold</b> или <i>italic</i>.
+                        </p>
+                        <p>
+                            Използването на <i>inline-block</i> ще позволи на елемент да се държи като елемент на ниво блок, приемайки всички свойства на модела на кутията. Елементът обаче ще бъде <i>display</i>-нат на един и същи ред с с други елементи. Едно важно нещо е, че те не винаги се допират или се показват директно един след друг. Обикновено има малко пространство между два <i>inline-block</i> елемента.
+                        </p>
+                        <pre>
+                            <code>
+                                &lt;h1&gt;Display: inline-block&lt;/h1&gt;
+
+                                &lt;p&gt;This is the first paragraph.&lt;/p&gt;
+                                &lt;p&gt;This is the second paragraph.&lt;/p&gt;
+
+                                &lt;ul&gt;
+                                    &lt;li&gt;One&lt;/li&gt;
+                                    &lt;li&gt;Two&lt;/li&gt;
+                                    &lt;li&gt;Three&lt;/li&gt;
+                                &lt;/ul&gt;
+
+                                &lt;p&gt;This is the third paragraph.&lt;/p&gt;
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 5: Представяне на display: inline-block (HTML код) <a href="#resources">[5]</a></i></p>
+                        <pre>
+                            <code>
+                                p{
+                                    display: inline-block;
+                                    border: 2px solid blue;
+                                }
+                                
+                                ul{
+                                    display: inline-block;
+                                    border: 2px solid red;
+                                }
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 6: Представяне на display: inline-block (CSS код) <a href="#resources">[5]</a></i></p>
+                        <figure class="example-three">
+                            <img src="./img/display-inline-block.png" alt="Display: inline-block">
+                            <figcaption>
+                                <i>Пример 3: Визуализиране на display: inline-block чрез браузър <a href="#resources">[4]</a></i>
+                            </figcaption>
+                        </figure>
+                        <p>
+                            Използването на стойност <i>none</i> ще скрие напълно елемент и ще направи страницата така, сякаш този елемент не съществува. Всички елементи, вложени в този елемент, също ще бъдат скрити.
+                        </p>
+                        <pre>
+                            <code>
+                                &lt;h1&gt;Display: none&lt;/h1&gt;
+
+                                &lt;p&gt;This is the first paragraph.&lt;/p&gt;
+
+                                &lt;ul&gt;
+                                    &lt;li&gt;One&lt;/li&gt;
+                                    &lt;li&gt;Two&lt;/li&gt;
+                                    &lt;li&gt;Three&lt;/li&gt;
+                                &lt;/ul&gt;
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 7: Представяне на display: none (HTML код) <a href="#resources">[5]</a></i></p>
+                        <pre>
+                            <code>
+                                p{
+                                    display: none;
+                                }
+                                
+                                ul{
+                                    display: block;
+                                    border: 2px solid red;
+                                }                                
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 8: Представяне на display: none (CSS код) <a href="#resources">[5]</a></i></p>
+                        <figure class="example-four">
+                            <img src="./img/display-none.png" alt="Display: none">
+                            <figcaption>
+                                <i>Пример 4: Визуализиране на display: none чрез браузър <a href="#resources">[4]</a></i>
+                            </figcaption>
+                        </figure>
+                        <p>
+                            Дотук разгледахме външния тип <i>display</i>. Същестува и вътрешен тип, който разпределя елементите вътре в кутията. По подразбиране елементите в кутията са разположени в нормален поток, което означава, че те се държат точно както всеки друг блок или <i>inline</i> елемент.
+                            Можем обаче да променим типа на вътрешния <i>display</i>, като използваме стойности на <i>display</i> като <i>flex</i>. Ако зададем <i>display: flex;</i> на елемент, външният вид на дисплея е блок, но вътрешният тип на дисплея се променя на <i>flex</i>. Всички директни деца на тази кутия ще станат гъвкави елементи и ще бъдат изложени в съответствие с правилата, посочени в спецификацията на <i>Flexbox</i>. Друга стойност, която същестува е <i>grid</i>, но тези неща поподат в изцяло друга <i>CSS</i> тема. Засега нас ни интересува само нормалния поток.
+                        </p>
+                    </article>
+                </section>
+
+                <section class="width-and-height" id="width-and-height">
+                    <header>
+                        <h2>Width and height</h2>
+                    </header>
+                    <article>
+                        <p>
+                            Общата ширина на даден елемент може да се изчисли по следния начин:<br>
+                            <i>margin-right + border-right + padding-right + width + padding-left + border-left + margin-left</i>, а височината:<br>
+                            <i>margin-top + border-top + padding-top + height + padding-bottom + border-bottom + margin-bottom.</i><br>
+                            Според концепцията за <i>box model</i> това представляват <i>width</i> и <i>height</i>. Трябва да се отбележи, че с ключовите думи <i>width</i> и <i>height</i> може да се променят размерите само на съдържанието.
+                        </p>
+                        <figure class="figure-two">
+                            <img src="./img/widht-height.png" alt="Width and height">
+                            <figcaption>
+                                <i>Фигура 2: Изчисляване на общата ширина и височина на кутия <a href="#resources">[2]</a></i>
+                            </figcaption>
+                        </figure>
+                        <p>
+                            Използвайки формулите, можем да намерим общата височина и ширина на елемента от <i>Фигура 2</i>:<br>
+                            Ширина: <i>492px = 20px + 6px + 20px + 400px + 20px + 6px + 20px</i><br>
+                            Височина: <i>192px = 20px + 6px + 20px + 100px + 20px + 6px + 20px</i>
+                        </p>
+                        <p>
+                            Box моделът е една от най-объркващите части на <i>HTML</i> и <i>CSS</i>. Задаваме стойност на свойството <i>width</i> 400 пиксела, но действителната ширина на нашия елемент е 492 пиксела. Това е защото, за да определим действителния размер на кутията, трябва да вземем предвид и <i>padding</i>-ите, и границите, и <i>margin</i>-ините за четирите страни на кутията.
+                        </p>
+                        <p>
+                            Всеки елемент има ширина и височина по подразбиране. Тази ширина и височина може да е нула, но браузърите изобразяват всеки елемент с размер по подразбиране. Също така, могат и да бъдат посочени стойностите oт нас.
+                            Ширината по подразбиране на даден елемент зависи от стойността на <i>display</i> за елемента. <i>Block</i> елементите имат ширина по подразбиране 100%. Те отнемат цялото налично хоризонтално пространство. <i>Inline</i> и <i>block-inline</i> елементите се разширяват и свиват хоризонтално, за да поместят тяхното съдържание. <i>Inline</i> елементите не могат да имат фиксиран размер, защото свойствата за ширината и височината работят само за <i>non-inline</i> елементи.
+                            Височината по подразбиране на даден <i>inline</i> елемент се определя от съдържанието му. Елементът ще се разширява и свива вертикално, колкото е необходимо, за да побере съдържанието му.
+                        </p>
+                        <pre>
+                            <code>
+                                &lt;h1&gt;Width and height example&lt;/h1&gt;
+
+                                &lt;p class="block"&gt;Example for block&lt;/p&gt;
+                        
+                                &lt;p class="inline"&gt;Example for inline element&lt;/p&gt;
+                        
+                                &lt;p class="inline-block"&gt;Example for inline-block element&lt;/p&gt;
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 9: Представяне на width и height за блокове и inline елементи (HTML код) <a href="#resources">[5]</a></i></p>
+                        <pre>
+                            <code>
+                                .block{
+                                    display: block;
+                                    width: 300px;
+                                    height: 150px;
+                                    background-color: yellow;
+                                }
+                                
+                                .inline{ 
+                                    display: inline;
+                                    /*width and height won't work*/
+                                    width: 300px;
+                                    height: 150px;
+                                    background-color: yellow;
+                                }
+                                
+                                .inline-block{
+                                    display: inline-block;
+                                    /*width and height work*/
+                                    width: 300px;
+                                    height: 100px;
+                                    background-color: yellow;
+                                }
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 10: Представяне на width и height за блокове и inline елементи (CSS код) <a href="#resources">[5]</a></i></p>
+                        <figure class="example-five">
+                            <img src="./img/width-height-example.png" alt="Width and height">
+                            <figcaption>
+                                <i>Пример 5: Визуализиране на width и height за блокове и inline елементи чрез браузър <a href="#resources">[4]</a></i>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </section>
+
+                <section class="margin-and-padding" id="margin-and-padding">
+                    <header>
+                        <h2>Margin and padding</h2>
+                    </header>
+                    <article>
+                        <p>
+                            В зависимост от елемента, браузърите могат да приложат <i>margin</i> и <i>padding</i> по подразбиране, за да помогнат за по-добра четимост. За да избегнем това, може да ги нулираме и след това сами да задаваме стойности.
+                        </p>
+                        <p>
+                            <i>Мargin</i> ни позволява да зададем размера на пространството, което заобикаля елемент. Те могат да се използват за подпомагане на позиционирането на елементи на определено място на страницата или за осигуряване на спейсинг, като се пазят всички останали елементи на определно разстояние.
+                            <i>Margin</i> работи хоризонтално върху <i>inline</i> елементи, т.е вертикалните <i>margin</i>-и не се приемат от <i>inline</i> елементи. <i>Margin</i> работи и хоризонтално, и вертикално върху блокове и <i>inline-block</i> елементи.
+                        </p>
+                        <p>
+                            <i>Padding</i> е подобно на <i>margin</i>, но то попада вътре в границата на елемент. Свойството <i>padding</i> се използва за осигуряване на разстояния директно в даден елемент.
+                            <i>Padding</i> работи и хоризонтално, и вертикално върху <i>inline</i> елементи, но отгоре и отдолу може да се влива в линиите на елементи, които са върху или под елемента. <i>Padding</i> работи и хоризонтално, и вертикално върху блокове и <i>inline-block</i> елементи.
+                        </p>
+                        <pre>
+                            <code>
+                                &lt;h1&gt;Margin and Padding&lt;/h1&gt;
+
+                                &lt;p class="margin-and-padding"&gt;This is an example for margin and padding.&lt;/p&gt;
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 11: Представяне на margin и padding (HTML код) <a href="#resources">[5]</a></i></p>
+                        <pre>
+                            <code>
+                                .margin-and-padding{
+                                    display: inline-block;
+                                    border: 2px solid blue;
+                                    margin: 15px;
+                                    padding: 20px;
+                                    background-color: yellow;
+                                }
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 12: Представяне на margin и padding (CSS код) <a href="#resources">[5]</a></i></p>
+                        <figure class="example-six">
+                            <img src="./img/margin-padding.png" alt="Margin and padding">
+                            <figcaption>
+                                <i>Пример 6: Визуализиране на margin и padding чрез браузър <a href="#resources">[4]</a></i>
+                            </figcaption>
+                        </figure>
+                        <p>
+                            Чрез инспектиране на страницата (това ще го разгледаме по-подробно малко по-късно) можем да забележим разликата между <i>margin</i> и <i>padding</i>. <i>Padding</i>-a e в зеленикавия, а <i>margin</i>-a в банановия цвят.
+                        </p>
+                        <figure class="example-seven"> 
+                            <img src="./img/margin-padding-inspect.png" alt="Margin and padding">
+                            <figcaption>
+                                <i>Пример 7: Разлика между margin и padding показана чрез developer tools на браузъра <a href="#resources">[4]</a></i>
+                            </figcaption>
+                        </figure>
+                        <p>
+                            Декларациите на <i>margin</i> и <i>padding</i> могат да са както къси, така и дълги. Когато използваме къса декларация, за да зададем стойността и за четирите страни на елемент – <i>top, right, bottom, left,</i> подаваме една стойност.
+                        </p>
+                        <pre>
+                            <code>
+                                div {
+                                    margin: 15px;
+                                }                            
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 13: Представяне на margin с 1 стойност <a href="#resources">[5]</a></i></p>
+                        <p>
+                            За да зададем една стойност за <i>top</i> и <i>bottom</i> и една стойност за <i>left</i> и <i>right</i>, подаваме две стойности.
+                        </p>
+                        <pre>
+                            <code>
+                                div {
+                                    padding: 15px 20px;
+                                }                            
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 14: Представяне на padding с 2 стойности <a href="#resources">[5]</a></i></p>
+                        <p>
+                            За да зададем уникални стойности за четирите страни на даден елемент, посочваме тези стойности в реда <i>top, right, bottom, left,</i> движейки се по посока на часовниковата стрелка.
+                        </p>
+                        <pre>
+                            <code>
+                                div {
+                                    margin: 15px 20px 5px 10px;
+                                    padding: 20px 0px 30px 25px;
+                                }                            
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 15: Представяне на margin и padding с 4 стойности <a href="#resources">[5]</a></i></p>
+                        <p>
+                            С дълга декларация можем да зададем стойността за една страна наведнъж. Името на всяко свойство е последвано от тире и страната, например <i>padding-left, margin-top</i>. По този начин кодът е по-чист.
+                        </p>
+                        <pre>
+                            <code>
+                                div {
+                                    padding-right: 20px;
+                                    margin-bottom: 35px;
+                                }                            
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 16: Представяне на padding и margin чрез дълга декларация <a href="#resources">[5]</a></i></p>
+                        <p>
+                            За <i>margin</i> съществуват още две стойности – <i>auto</i> и <i>inherit</i>. При първото браузърът избира подходящ <i>margin</i>, който да използва. Например, в определени случаи тази стойност може да се използва за центриране на елемент. При второто се прехвърлят <i>margin</i>-ите на родител към дъщерен елемент.
+                        </p>
+                        <p>
+                            <i>Margin</i> и <i>padding</i> са напълно прозрачни и не приемат никакви цветови стойности. Тъй като са прозрачни, те показват цветовете на фона на относителните елементи. За <i>margin</i> виждаме цвета на фона на родителския елемент, а за <i>padding</i> - цвета на фона на елемента, към който се прилага <i>padding</i>-a.
+                        </p>
+                    </article>
+                </section>
+
+                <section class="border" id="border">
+                    <header>
+                        <h2>Border</h2>
+                    </header>
+                    <article>
+                        <p>
+                            <i>Border</i> попада между <i>padding</i>-a и <i>margin</i>-a, осигурявайки контур около елемент. To изисква три стойности: <i>width, style</i> и <i>color</i>.
+                            Чрез дълга декларация тези три стойности могат да бъдат разделени на <i>border-width, border-style</i> и <i>border-color</i>. Те са полезни за промяна или презаписване на единична стойност на границата.
+                        </p>
+                        <pre>
+                            <code>
+                                &lt;h1&gt;Border&lt;/h1&gt;
+                                &lt;p&gt;Showing the three values of border&lt;/p&gt;
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 17: Представяне на border с width, style и color (HTML код) <a href="#resources">[5]</a></i></p>
+                        <pre>
+                            <code>
+                                p{
+                                    display: inline;
+                                    padding: 10px;
+                                    border: 5px dotted green;
+                                }
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 18: Представяне на border с width, style и color (CSS код) <a href="#resources">[5]</a></i></p>
+                        <figure class="example-eight">
+                            <img src="./img/border.png" alt="Border">
+                            <figcaption>
+                                <i>Пример 8: Визуализиране на border с width, style и color чрез браузър <a href="#resources">[4]</a></i>
+                            </figcaption>
+                        </figure>
+                        <p>
+                            Границите могат да имат различен външен вид. Най-често срещаните стойности на стила са <i>solid, double, dashed, dotted</i> и <i>none</i>.
+                        </p>
+                        <figure class="figure-three">
+                            <img src="./img/types-of-borders.PNG" alt="Types of borders">
+                            <figcaption>
+                                <i>Фигура 3: Представяне на различните видове граници <a href="#resources">[2]</a></i>
+                            </figcaption>
+                        </figure>
+                        <p>
+                            Граница може да се постави от едната страна на елемент. За това са необходими свойствата: <i>border-top, border-right, border-bottom</i> и <i>border-left</i>. Стойностите за тези свойства са същите като тези на свойството <i>border: width, style</i> и <i>color</i>.
+                        </p>
+                        <pre>
+                            <code>
+                                div{
+                                    border-bottom: 6px double red;
+                                }                            
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 19: Представяне на border само на една страна <a href="#resources">[5]</a></i></p>
+                        <p>
+                            Освен това, отделните гранични страни могат да бъдат контролирани на още едно ниво. Думите са разделени с тире, започващи с <i>border</i>, последвани от избраната страна – <i>top, right, bottom, left,</i> и след това <i>width, style</i> или <i>color</i>, в зависимост от желаното свойство.
+                        </p>
+                        <pre>
+                            <code>
+                                div{
+                                    border-top-color: pink;
+                                }                            
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 20: Представяне на border на една страна на по-детайлно ниво <a href="#resources">[5]</a></i></p>
+                        <p>
+                            Свойството <i>border-radius</i> ни позволява да закръглим ъглите на елемент. То приема единици за дължина, включително проценти и пиксели, които идентифицират радиуса, с който ъглите на даден елемент трябва да бъдат закръглени. Единична стойност ще закръгли еднакво всичките четири ъгъла на елемент. Две стойности ще закръглят горния ляв/долния десен и горния десен/долния ляв ъгъл в този ред. Четири стойности ще закръглят горния ляв, горния десен, долния десен и долния ляв ъгъл в този ред. Tук за <i>border</i> отново може да се използва дълга декларация.
+                        </p>
+                        <pre>
+                            <code>
+                                &lt;body&gt;
+                                    &lt;h1>Border-radius&lt;/h1&gt;
+                            
+                                    &lt;p class="first"&gt;First example of border-radius&lt;/p&gt;
+                                    &lt;p class="second"&gt;Second example of border-radius&lt;/p&gt;
+                                    &lt;p class="third"&gt;Third example of border-radius&lt;/p&gt;
+                                &lt;/body&gt;
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 21: Представяне на border-radius (HTML код) <a href="#resources">[5]</a></i></p>
+                        <pre>
+                            <code>
+                                body{
+                                    display: inline-block;
+                                }
+                                
+                                p{
+                                    border: 5px solid pink;
+                                    padding: 5px;
+                                }
+                                
+                                .first{
+                                    border-radius: 5px;
+                                }
+                                
+                                .second{
+                                    border-radius: 50%;
+                                }
+                                
+                                .third{
+                                    border-radius: 15px 75px;
+                                }
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 22: Представяне на на border-radius (CSS код) <a href="#resources">[5]</a></i></p>
+                        <figure class="example-nine">
+                            <img src="./img/radius.png" alt="Border-radius">
+                            <figcaption>
+                                <i>Пример 9: Визуализиране на border-radius чрез браузър <a href="#resources">[4]</a></i>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </section>
+
+                <section class="box-sizing" id="box-sizing">
+                    <header>
+                        <h2>Box sizing</h2>
+                    </header>
+                    <article>
+                        <p>
+                            Вече разбрахме, че пълните <i>width</i> и <i>height</i> на един елемент не са просто ширината и височината на съдържанието, а включва и <i>padding</i>-ите, <i>margin</i>-ите и границите. Свойството <i>box-sizing</i> може да регулира това. То може да приема стойностите: <i>content-box, padding-box</i> и <i>border-box</i>.
+                        </p>
+                        <p>
+                            Свойството <i>content-box</i> е това по подразбиране. Ако зададем ширината на даден елемент на 100px, тогава полето за съдържание на елемента ще бъде с ширина 100px и ширината на която и да е граница или <i>padding</i> ще бъде добавена към крайната визуализирана ширина, което прави елемента по-широк от 100px.
+                        </p>
+                        <p>
+                            Свойството <i>padding-box</i> променя модела на кутията, като включва всички стойности на <i>padding</i> в рамките на ширината и височината на елемент. С увеличаване на стойностите на <i>padding</i>-a, размерът на съдържанието в даден елемент се свива пропорционално. Но това свойство е остаряло и не трябва да се използва.
+                        </p>
+                        <p>
+                            Последното свойство, <i>border-box</i>, променя модела на кутията, така че всички стойности на <i>border</i> и <i>padding</i> са включени в ширината и височината на даден елемент. Когато използваме <i>border-box</i>, ако елементът има ширина 400px, <i>padding</i> от 20px около всяка страна и <i>border</i> от 10px около всяка страна, действителната ширина ще остане 400px.
+                        </p>
+                        <p>
+                            Без значение коя стойност на <i>box-sizing</i> на кутията се използва, ще трябва да се добавят всякакви стойности на <i>margin</i>, за да се изчисли пълният размер на елемента.
+                            Най-добрата стойност за оразмеряване на кутията за използване е <i>border-box</i>, защото по-лесно можем да сметнем ширината или височината на елемент. Единственият недостатък e, че не се поддържа от всички браузъри.
+                        </p>
+                        <pre>
+                            <code>
+                                first-div{
+                                    box-sizing: content-box;
+                                }
+                                
+                                second-div{
+                                    box-sizing: border-box;
+                                }                                
+                            </code>
+                        </pre>
+                        <p class="code"><i>Код 23: Представяне на box-sizing <a href="#resources">[5]</a></i></p>
+                    </article>
+                </section>
+
+                <section class="developer-tools" id="developer-tools">
+                    <header>
+                        <h2>Developer tools</h2>
+                    </header>
+                    <article>
+                        <p>
+                            Повечето браузъри имат така наречените <i>Developer tools</i>. Тези инструменти ни позволяват да проверим елемент на страница, да видим къде този елемент живее в <i>HTML</i> документа и да видим какви свойства и стойности на <i>CSS</i> са приложени към него. Повечето от тези инструменти включват и диаграма на <i>box model</i>-a, която показва изчисления размер на елемент.
+                        </p>
+                        <p>
+                            Когато сме в страница, можем да натиснем десен бутон на мишката и от падащото меню да изберем “<i>Inspect</i>”. Отдясно на страницата се зареждат инструменти, с които можем да проверяваме нашия код. Горе вляво има иконка със стрелкичка. Ако щракнем на нея и после местим курсора на мишката върху различни елементи от страницата, можем да видим информация за тях. Ако щракнем върху елемент и изберем “<i>Computed</i>” от инструментите, ще ни се покаже разбивка на модела на кутията за избрания елемент.
+                        </p>
+                        <p>
+                            Има още други интересни инструменти, които могат да се изпробват в различни браузъри.
+                        </p>
+                        <figure class="example-ten">
+                            <img src="./img/inspect.png" alt="Developer tools">
+                            <figcaption>
+                                <i>Пример 10: Представяне на developer tools на браузъра <a href="#resources">[4]</a></i>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </section>
+            </section>
+
+            <section class="resources" id="resources">
+                <header>
+                    <h1>Източници:</h1>
+                </header>
+                <ul>
+                    <i>
+                    <li>
+                        <p>
+                            [1] The box model, MDN Web Docs mozilla
+                        </p>
+                        <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model" target="_blank">[https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/The_box_model]</a>
+                    </li>
+                    <li>
+                        <p>
+                            [2] Opening the Box Model, Learn to Code HTML & CSS, Lesson 4
+                        </p>
+                        <a href="https://learn.shayhowe.com/html-css/opening-the-box-model/" target="_blank">[https://learn.shayhowe.com/html-css/opening-the-box-model]</a>
+                    </li>
+                    <li>
+                        <p>
+                            [3] Margin CSS: Margin vs. Padding and How to Set CSS Margins, BitDegree learn
+                        </p>
+                        <a href="https://www.bitdegree.org/learn/margin-css" target="_blank">[https://www.bitdegree.org/learn/margin-css]</a>
+                    </li>
+                    <li>
+                        <p>
+                            [4] Примери, измислени на база източници [1], [2] и [3]. Използваният браузър е Google Chrome.
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            [5] Код, написан на база източници [1], [2] и [3]. Използваният текстов редактор е Visual Studio Code.
+                        </p>
+                    </li>
+                    </i>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <a href="#">
+                <img src="./img/gift-box.png" alt="Gift box">
+            </a>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Form</title>
+        <link rel="stylesheet" href="style.css">
+        <script defer src="index.js"></script>
+    </head>
+
+    <body>
+        <main>
+            <form method="post">
+                <p class="error" id="error"></p>
+                <p id="success"></p>
+
+                <label for="username">Потребителско име</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="name">Име</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="family-name">Фамилия</label>
+                <input type="text" id="family-name" name="family-name" required>
+
+                <label for="email">Имейл</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Парола</label>
+                <input type="password" name="password" id="password" required>
+
+                <label for="street">Улица</label>
+                <input type="text" name="street" id="street">
+
+                <label for="city">Град</label>
+                <input type="text" name="city" id="city">
+
+                <label for="postal-code">Пощенски код</label>
+                <input type="text" name="postal-code" id="postal-code">
+               
+                <input id="register-btn" type="button" value="Регистрация" onclick="validate()">
+            </form>
+        </main>
+    </body>
+</html>

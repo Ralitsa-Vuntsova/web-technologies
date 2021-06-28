@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Form</title>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+
+    <body>
+        <main>
+            <form id="form" class="form">
+                <p class="username">
+                    <input type="text" id="username" name="username" placeholder="Потребителско име">
+                </p>
+                <p id="invalid-username" class="invalid-username">Невалидно потребителско име</p>
+                <p>
+                    <input type="password" name="password" id="password" placeholder="Парола">
+                </p>
+                <p id="invalid-password">Невалидна парола</p>
+                <p>
+                    <input type="text" id="phone-number" name="phone-number" placeholder="Телефон">
+                </p>
+                <p id="invalid-number">Невалиден телефонен номер</p>
+                <p>
+                    <input type="email" id="email" name="email" placeholder="Имейл адрес">
+                </p>
+                <p id="invalid-email">Невалиден имейл</p>
+                <p>
+                    <select class="dropdown" name="dropdown" id="dropdown">
+                        <option value="owner">Собственик</option>
+                        <option value="tenant">Наемател</option>
+                    </select>
+                </p>
+                <p>
+                    <input type="text" id="ap-number" name="ap-number" placeholder="Номер на апартамента">
+                </p>
+                <p id="invalid-ap-number">Невалиден номер на апартамент</p>
+                <p>
+                    <button type="button" class="button" onclick="validate()">Регистрирай ме!</button>
+                </p>
+            </form>
+        </main>
+    </body>
+
+    <script>
+        function change(param1, param2){
+            document.getElementById(param1).style.display = "flex";
+            document.getElementById(param1).style.alignItems = "center";
+            document.getElementById(param1).style.paddingLeft = "8px";
+            document.getElementById(param1).style.width = "355px";
+            document.getElementById(param1).style.height = "36px";
+            document.getElementById(param1).style.backgroundColor = "#b0706d";
+            document.getElementById(param1).style.color = "white";
+            document.getElementById(param1).style.fontSize = "16px";
+            document.getElementById(param1).style.marginLeft = "31px";
+            document.getElementById(param1).style.marginRight = "31px";
+
+            document.getElementById(param2).style.border = "2px solid #b0706d";
+        }
+
+        function validate(){
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var phoneNumber = document.getElementById("phone-number").value;
+            var email = document.getElementById("email").value;
+            var apNumber = document.getElementById("ap-number").value;
+
+            var passwordLength = password.length;
+            var phoneNumberLength = phoneNumber.length;
+
+            // validation for username
+            if(!/^[a-zA-Z0-9_]{5,25}$/.test(username)){
+                console.log("Invalid username!");
+                change("invalid-username", "username");
+            }
+
+            // validation for password
+            if(!/^[a-zA-Z0-9_]+$/.test(password)){
+                console.log("Invalid password!");
+                change("invalid-password", "password");
+            }
+
+            if(passwordLength < 6){
+                console.log("Invalid password length!");
+                change("invalid-password", "password");
+            }
+
+            // validation for phone number
+            if(!/^[0-9]+$/.test(phoneNumber)){
+                console.log("Invalid phone number!");
+                change("invalid-number", "phone-number");
+            }
+
+            if(phoneNumberLength != 10){
+                console.log("Invalid phone number length!");
+                change("invalid-number", "phone-number");
+            }
+
+            // validation for email
+            if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(email)){
+                console.log("Invalid email!");
+                change("invalid-email", "email");
+            }
+
+            // validation for apartment number
+            if(!/^[0-9]+$/.test(apNumber)){
+                console.log("Invalid apartment number!");
+                change("invalid-ap-number", "ap-number");
+            }
+        }
+    </script>
+</html>

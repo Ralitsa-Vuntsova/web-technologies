@@ -1,0 +1,203 @@
+:root{
+    --primary-color: #4581B3;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: #F2F2F2;
+    margin: 0;
+    font-family: cursive;
+}
+
+.menu{
+    position: fixed;
+    background: var(--primary-color);
+    height: 100%;
+    width: 0;
+    left: -5em;
+    top: 0;
+    text-align: left;
+    transition: 0.5s;
+}
+
+.menu a{
+    display: block;
+    margin-top: 1.5em;
+    margin-right: 1.5em;
+    color: white;
+    padding-left: .7em;
+}
+
+.menu a:hover{
+    color: #F2F2F2;
+    font-weight: bold;
+}
+
+.content-nav, .exit{
+    cursor: pointer;
+}
+
+.navigation{
+    padding: .5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navigation li{
+    display: inline-block;
+    text-align: center;
+    margin-right: 3em;
+    background: var(--primary-color);
+    color: white;
+    padding: .5em 1em;
+    font-size: 1em;
+    border-radius: 5em;
+    font-weight: bold;
+    width: 7em;
+    height: 1.5 em;
+}
+
+.navigation a{
+    color:white;
+}
+
+li{
+    list-style-type: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.hero{
+    padding-top: 2em;
+    background-color: white;
+    text-align: center;
+}
+
+.hero img{
+    width: 15%;
+    height: 15%;
+    border: .5em solid #F2F2F2;
+    background-color:#F2F2F2;
+    border-radius: 50%;
+    margin-top: -1em;
+    margin-bottom: 1.5em;
+}
+
+.hero .subhead{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: grey;
+    letter-spacing: .3em;
+}
+
+.hero h1{
+    margin-top: -0.5em;
+    font-size: 2.5em;
+    color: var(--primary-color);
+}
+
+.info h2{
+    margin-left: 3em;
+}
+
+.info p{
+    margin-left: 2em;
+    margin-right: 2em;
+    text-indent: 1.5em;
+}
+
+.info li{
+    margin-left: 2em;
+}
+
+.info img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border-radius: .5em;
+    margin-top: 2em;
+}
+
+figure, .code{
+    text-align: center;
+    font-size: .8em;
+    margin-bottom: 2em;
+}
+
+figure figcaption{
+    margin-top: 1em;
+}
+
+.figure-one{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border-radius: .5em;
+    margin-top: 2em;
+}
+
+.example-five, .example-six{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    border-radius: .5em;
+    margin-top: 2em;
+}
+
+.example-eight, .example-nine{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: .5em;
+    margin-top: 2em;
+}
+
+pre { 
+    white-space: pre-wrap;
+}
+
+.code{
+    margin-top: -1.5em;
+}
+
+code{
+    display: block;
+    background-color: white;
+}
+
+.resources{
+    margin-left: 3em;
+}
+
+footer img{
+    margin-top: 2em;
+    width: 5em;
+    height: 5em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 465px) {
+    .navigation li{
+        display: flex;
+        margin-top: 1em;
+        align-items: center;
+        justify-content: center;
+    }
+
+    footer img{
+        width: 2em;
+        height: 2em;
+    }
+}

@@ -1,0 +1,77 @@
+body{
+    margin: 0;
+    background-color: #defdf1;
+}
+
+.form{
+    margin: 62px 62px;
+    border: 1px solid #558c3c;
+    width: 425px;
+    height: auto;
+    padding: 0;
+}
+
+.form p{
+    padding: 0;
+    margin-left: 31px;
+    margin-right: 31px;
+    margin-bottom: -4px;
+}
+
+input{
+    width: 351px;
+    height: 34px;
+    border: 2px solid #cbdbcf;
+    padding: 0;
+    padding-left: 8px;
+    font-size: 18px;
+}
+
+.dropdown{
+    width: 361px;
+    height: 36px;
+    border: 1px solid #dbe6de;
+    outline: 1px solid #cbdbcf;
+    padding: 0;
+    font-size: 18px;
+    padding-left: 8px;
+    margin-left: 1px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
+#invalid-username, #invalid-password, #invalid-number, #invalid-email, #invalid-ap-number{
+    display: none;
+}
+
+.username{
+    margin-top: 31px;
+}
+
+.button{
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    width: 363px;
+    height: 38px;
+    border: 2px solid #cbdbcf;
+    padding: 0;
+    background-color: #cfe7d9;
+    color: #95ac87;
+    font-size: 18px;
+    margin-bottom: 36px;
+}
+
+.button:hover {
+    background-color: #558d3d;
+    color: #c1d8a3;
+}
+
+input:hover {
+    border-color: #7ba16d;
+}
+
+.dropdown:hover{
+    outline-color: #7ba16d;
+    border-color: #7ba16d;
+}
